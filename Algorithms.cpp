@@ -219,7 +219,7 @@ string Algorithms::isBipartite(Graph &graph) {
     vector<int> queue;
     queue.push_back(0);
     color[0] = GRAY;
-    while (queue.size() != 0) {
+    while (!queue.empty()) {
         size_t current = (size_t)queue[0];
         queue.erase(queue.begin());
         for (size_t i = 0; i < graph.getVertices(); i++) {

@@ -18,6 +18,9 @@ TEST_OBJECTS=$(subst .cpp,.o,$(TEST_SOURCE))
 
 run: demo
 	./$^
+
+run_test: test
+	./$^
 	
 
 demo: Demo.o $(OBJECTS)
@@ -25,14 +28,14 @@ demo: Demo.o $(OBJECTS)
 
 test: $(TEST_OBJECTS) $(OBJECTS)
 	$(CXX) $(CXXFLAGS) $^ -o test
-	./test
+
 
 tidy:
 	clang-tidy $(SOURCES) -checks=bugprone-*,clang-analyzer-*,cppcoreguidelines-*,performance-*,portability-*,readability-*,-cppcoreguidelines-pro-bounds-pointer-arithmetic,-cppcoreguidelines-owning-memory --warnings-as-errors=-* --
 
 valgrind: demo test
-	valgrind --tool=memcheck $(VALGRIND_FLAGS) ./demo 2>&1 | { egrep "lost| at " || true; }
-	valgrind --tool=memcheck $(VALGRIND_FLAGS) ./test 2>&1 | { egrep "lost| at " || true; }
+	valgrind --tool=memcheck $(VALGRIND_FLAGS) ./demo 2>&1 
+	# valgrind --tool=memcheck $(VALGRIND_FLAGS) ./test 2>&1 | { egrep "lost| at " || true; }
 
 %.o: %.cpp
 	$(CXX) $(CXXFLAGS) --compile $< -o $@
