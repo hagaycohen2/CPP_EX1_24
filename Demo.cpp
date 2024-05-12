@@ -1,6 +1,8 @@
 /*
  * Demo program for Exercise 2.
  * Author: Benjamin Saldman.
+ * 
+ * modified by: Hagay cohen
  */
 
 #include "Algorithms.hpp"

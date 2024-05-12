@@ -4,7 +4,7 @@
  * relevant algorithms. the hole project will be test driven development refer
  * to the README.md file and the test files
  *
- * Author: Hagay Cohen : 206846180
+ * Author: Hagay Cohen : *****6180
  * Email: hagaycohen2@gmail.com
  */
 
@@ -17,6 +17,12 @@
 
 using namespace std;
 using namespace hagay;
+
+/**
+ * this function will visit all the vertices in the graph
+ * the function will use DFS algorithm to visit all the vertices
+ * the function will return the order of the vertices
+ * */
 
 vector<vector<int>> Algorithms::DFS(Graph &graph, size_t src) {
     vector<int> visited(graph.getVertices(), WHITE);
@@ -44,6 +50,12 @@ vector<int> Algorithms::DFS_visit(Graph &graph, size_t src,
     return result;
 }
 
+/**
+ * this function will visit all the vertices in the graph
+ * the function will use DFS algorithm to visit all the vertices
+ * the function will return the parents of each vertex
+ * */
+
 void Algorithms::DFS_parents_visit(Graph &graph, size_t src, vector<int> &visited, vector<int> &parents) {
     visited[src] = GRAY;
     for (size_t i = 0; i < graph.getVertices(); i++) {
@@ -56,6 +68,12 @@ void Algorithms::DFS_parents_visit(Graph &graph, size_t src, vector<int> &visite
     }
     visited[src] = BLACK;
 }
+
+
+/**
+ * this function will return the back edge in the graph
+ * the function will use DFS algorithm to find the back edge
+ * */
 
 vector<int> Algorithms::DFS_backEdge(Graph &graph, size_t src, vector<int> &visited, vector<int> &parents) {
     visited[src] = GRAY;

@@ -1,9 +1,9 @@
 
 #makefile for Graph project
-#Author: Hagay Cohen : 206846180
+#Author: Hagay Cohen : *****6180
 #Email: hagaycohen2@gmail.com
 
-#NOTE: the demo and test targets are separated
+#NOTE: the demo and test runs are separated
 
 
 CXX=clang++
