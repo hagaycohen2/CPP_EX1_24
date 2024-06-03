@@ -207,7 +207,7 @@ TEST_CASE("Test negativeCycle") {
         {0, 0, 0, 0, 0, 1},
         {1, 0, 0, 0, 0, 0}};
     g.loadGraph(graph3);
-    CHECK(Algorithms::negativeCycle(g) == "The negative cycle is: 1->2->3->4->5->0->1");
+    CHECK(Algorithms::negativeCycle(g) == "The negative cycle is: 0->1->2->3->4->5->0");
 
     vector<vector<int>> graph4 = {
         {0, 1, -1, 2, -2, 3},
@@ -217,7 +217,7 @@ TEST_CASE("Test negativeCycle") {
         {3, -3, 1, -1, 0, 2},
         {-2, 3, -3, 1, -1, 0}};
     g.loadGraph(graph4);
-    CHECK(Algorithms::negativeCycle(g) == "The negative cycle is: 3->5->0->3");
+    CHECK(Algorithms::negativeCycle(g) == "The negative cycle is: 0->3->5->0");
 }
 
 TEST_CASE("Test invalid graph") {
